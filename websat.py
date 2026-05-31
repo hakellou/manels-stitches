@@ -5,7 +5,7 @@ app = Flask(__name__)
 # رقم واتساب أختك منال الحقيقي مفعّل بالصيغة الدولية للجزائر
 WHATSAPP_NUMBER = "213552011543"
 
-# قائمة المنتجات الحقيقية مع أسماء ملفات الصور بعد رفعها مباشرة
+# قائمة المنتجات الحقيقية
 SERVICES = [
     {
         "id": 1, 
@@ -208,8 +208,8 @@ HTML_TEMPLATE = """
     <div class="container">
         {% for service in services %}
         <div class="card" onclick="openOrderModal('{{ service.name }}')">
-            <!-- جلب الصورة من المسار الرئيسي للمستودع مباشرة -->
-            <img src="/{{ service.image }}" alt="{{ service.name }}" onerror="this.src='https://placehold.co/600x400?text=Manel%27s+Stitches'">
+            <!-- تم تعديل مسار قراءة الصور البرمجي ليقرأ من مجلد static الإجباري -->
+            <img src="/static/{{ service.image }}" alt="{{ service.name }}" onerror="this.src='https://placehold.co/600x400?text=Manel%27s+Stitches'">
             <div class="card-body">
                 <h3>{{ service.name }}</h3>
                 <p>{{ service.description }}</p>
